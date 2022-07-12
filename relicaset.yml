@@ -1,0 +1,27 @@
+---
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: cat-rs
+  labels:
+    author: adarsh
+    type: appser
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      type: appser
+  template:
+    metadata:
+      name: cat-pod
+      labels:
+        author: adarsh
+        type: appser
+    spec:
+      containers:
+        - name: mycat
+          image: tomee
+          ports:
+            - containerPort: 8080
+              hostPort: 6060
+...
