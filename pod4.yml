@@ -1,0 +1,16 @@
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: cat-pod
+  labels:
+    author: adarsh
+    type: cat
+spec:
+  containers:
+    - name: mycat
+      image: tomee
+      ports:
+        - containerPort: 8080
+          hostPort: 7070
+...
